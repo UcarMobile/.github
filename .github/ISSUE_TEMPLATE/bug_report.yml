@@ -1,23 +1,21 @@
 name: 🐞 Bug report
-description: Reporta un error o problema
+description: Report a bug or unexpected behavior
 labels: [bug]
 body:
   - type: input
     id: summary
     attributes:
-      label: Descripción corta
-      placeholder: Qué está fallando...
+      label: Short description
+      placeholder: Briefly describe the problem
     validations:
       required: true
+
   - type: textarea
     id: steps
     attributes:
-      label: Pasos para reproducir
+      label: Steps to reproduce
+      description: Please list the steps to reproduce the issue
       placeholder: |
-        1. Ir a...
-        2. Hacer clic en...
-        3. Ver el error...
-  - type: input
-    id: expected
-    attributes:
-      label: Qué esperabas que ocurriera
+        1. Go to...
+        2. Click on...
+        3. See the error

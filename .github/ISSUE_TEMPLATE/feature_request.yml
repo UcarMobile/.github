@@ -22,3 +22,21 @@ body:
     attributes:
       label: Proposed solution
       placeholder: Describe your idea or how you’d like it implemented
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      placeholder: Define what must be true for this feature to be considered complete
+
+  - type: input
+    id: jira
+    attributes:
+      label: Jira / Task Reference
+      placeholder: "Example: JIRA-456"
+
+  - type: markdown
+    attributes:
+      value: |
+        **Reminder:**  
+        Branch name format → `feature/#<issue-number>-<short-description>`

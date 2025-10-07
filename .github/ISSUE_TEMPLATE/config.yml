@@ -1,5 +1,5 @@
 blank_issues_enabled: false
 contact_links:
-  - name: 📄 Documentación
-    url: https://github.com/UcarMobile/ucm-docs/wiki/Source-Control
-    about: Revisa la documentación antes de abrir un issue.
+  - name: 📄 Project documentation
+    url: https://github.com/YOUR_ORG/docs
+    about: Please review the documentation before opening an issue.

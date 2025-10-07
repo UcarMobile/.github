@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📄 Documentación
+    url: https://github.com/TU_ORG/docs
+    about: Revisa la documentación antes de abrir un issue.

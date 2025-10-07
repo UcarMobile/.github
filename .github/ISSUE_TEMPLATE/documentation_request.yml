@@ -1,0 +1,35 @@
+name: 📄 Documentation request
+description: Suggest or report an issue related to documentation
+labels: [documentation]
+body:
+  - type: input
+    id: summary
+    attributes:
+      label: Short summary
+      placeholder: What needs to be updated or added in the documentation?
+    validations:
+      required: true
+
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      placeholder: Describe what part of the documentation needs change and why
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      placeholder: Define what must be true for this request to be considered complete
+
+  - type: input
+    id: jira
+    attributes:
+      label: Jira / Task Reference
+      placeholder: "Example: JIRA-789"
+
+  - type: markdown
+    attributes:
+      value: |
+        **Reminder:**  
+        Branch name format → `documentation/#<issue-number>-<short-description>`

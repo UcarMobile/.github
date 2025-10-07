@@ -35,7 +35,7 @@ body:
     attributes:
       label: Environment
       description: Include details such as OS, browser, or app version
-      placeholder: Example: Windows 11 / Chrome 129 / API v2.3
+      placeholder: "Example: Windows 11 / Chrome 129 / API v2.3"
 
   - type: textarea
     id: acceptance
@@ -47,7 +47,7 @@ body:
     id: jira
     attributes:
       label: Jira / Task Reference
-      placeholder: Example: JIRA-123
+      placeholder: "Example: JIRA-123"
 
   - type: markdown
     attributes:

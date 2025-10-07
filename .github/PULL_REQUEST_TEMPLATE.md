@@ -1,13 +1,14 @@
-## 📝 Descripción
+## 📝 Description
 
-Describe brevemente los cambios realizados.
+Briefly describe the changes introduced in this pull request.
 
 ## ✅ Checklist
 
-- [ ] He probado los cambios localmente
-- [ ] He actualizado la documentación
-- [ ] No rompe funcionalidades existentes
+- [ ] I have tested my changes locally
+- [ ] Documentation has been updated if needed
+- [ ] Existing functionality is not broken
+- [ ] Related issues are linked below
 
-## 🔗 Referencias
+## 🔗 Related Issues
 
-Closes #ISSUE_ID
+Closes #ISSUE_NUMBER

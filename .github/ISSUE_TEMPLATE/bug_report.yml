@@ -18,4 +18,39 @@ body:
       placeholder: |
         1. Go to...
         2. Click on...
-        3. See the error
+        3. See the error...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      placeholder: What should have happened instead?
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Include details such as OS, browser, or app version
+      placeholder: Example: Windows 11 / Chrome 129 / API v2.3
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      placeholder: Define what must be true for this issue to be considered complete
+
+  - type: input
+    id: jira
+    attributes:
+      label: Jira / Task Reference
+      placeholder: Example: JIRA-123
+
+  - type: markdown
+    attributes:
+      value: |
+        **Reminder:**  
+        Branch name format → `bugfix/#<issue-number>-<short-description>`

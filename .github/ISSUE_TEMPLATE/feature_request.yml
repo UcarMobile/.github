@@ -1,0 +1,10 @@
+name: 💡 Nueva funcionalidad
+description: Sugiere una mejora o nueva característica
+labels: [enhancement]
+body:
+  - type: input
+    id: summary
+    attributes:
+      label: Descripción corta
+      placeholder: Qué funcionalidad te gustaría ver
+      value: ""

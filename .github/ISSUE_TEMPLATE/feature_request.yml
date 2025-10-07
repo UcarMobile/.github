@@ -7,4 +7,3 @@ body:
     attributes:
       label: Descripción corta
       placeholder: Qué funcionalidad te gustaría ver
-      value: ""

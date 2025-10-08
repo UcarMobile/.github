@@ -18,7 +18,4 @@ Briefly describe the changes introduced in this pull request.
 
 Closes #ISSUE_NUMBER
 
-## 🧠 Notes
-
-- Attach screenshots if the change affects the UI.
 

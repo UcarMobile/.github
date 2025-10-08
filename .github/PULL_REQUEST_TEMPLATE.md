@@ -1,6 +1,7 @@
 ## 🔖 Title Format
 
 Use: [#IssueNumber] Short descriptive title  
+
 Example: [#42] Implements vehicle data retrieval from ENGINE API
 
 ## 📝 Description

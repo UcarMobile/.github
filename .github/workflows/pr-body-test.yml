@@ -1,0 +1,27 @@
+name: PR Body Validation Test
+
+on:
+  workflow_dispatch:  # Permite ejecutar el workflow manualmente desde GitHub
+
+jobs:
+  test-pr-body:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set example PR body
+        run: |
+          # Puedes cambiar este texto para probar diferentes casos
+          PR_BODY="Closes #101
+                   Closes #102"
+          
+          echo "PR_BODY content:"
+          echo "$PR_BODY"
+          
+          # Regex robusto
+          REGEX='((^|[[:space:]])(close|closes|closed|fix|fixes|fixed|resolve|resolves|resolved)[[:space:]]+#[0-9]+([[:space:]]*,[[:space:]]*(close|closes|closed|fix|fixes|fixed|resolve|resolves|resolved)[[:space:]]+#[0-9]+)*)'
+          
+          if [[ "$PR_BODY" =~ $REGEX ]]; then
+            echo "✅ PR body is valid!"
+          else
+            echo "❌ PR body is INVALID!"
+            exit 1
+          fi

@@ -1,0 +1,21 @@
+name: 🐞 Bug report
+description: Report a bug or unexpected behavior
+labels: [bug]
+body:
+  - type: input
+    id: summary
+    attributes:
+      label: Short description
+      placeholder: Briefly describe the problem
+    
+  - type: input
+    id: jira
+    attributes:
+      label: Jira / Task Reference
+      placeholder: "Example: JIRA-123"
+
+  - type: markdown
+    attributes:
+      value: |
+        **Reminder:**  
+        Branch name format → `bugfix/#<issue-number>-<short-description>`

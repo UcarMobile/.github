@@ -10,8 +10,9 @@ jobs:
       - name: Set example PR body
         run: |
           # Puedes cambiar este texto para probar diferentes casos
-          PR_BODY="Closes #101
-                   Closes #102"
+          PR_BODY: |
+            Closes #101
+            Closes #102
           
           echo "PR_BODY content:"
           echo "$PR_BODY"

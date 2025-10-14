@@ -20,7 +20,7 @@ jobs:
       - name: Validate PR Title and Branch
         if: github.event_name == 'pull_request'
         run: |
-          echo "Checking PR title and branch format..."
+          echo "Checking PR title..."
           
           PR_TITLE="${{ github.event.pull_request.title }}"
           BRANCH_NAME="${{ github.head_ref }}"
@@ -39,14 +39,22 @@ jobs:
           echo "Checking body issue-closing reference..."
           
           PR_BODY="${{ github.event.pull_request.body }}"
-          PR_BODY_CLEAN=$(echo "$PR_BODY" | tr -d '\r')
-          REGEX='(?i)(close|closes|closed|fix|fixes|resolve|resolves)[[:space:]]*#[0-9]+'
+          echo "$PR_BODY" | grep -Ei '(close|closes|closed|fix|fixes|resolve|resolves)[[:space:]]*#[0-9]+' > /dev/null
 
-          if ! [[ "$PR_BODY_CLEAN" =~ $REGEX ]]; then
-            echo "❌ PR body must include a valid issue-closing reference, e.g. 'Closes #123', 'Fixes #45', or 'Resolves #7'"
+          if [ $? -ne 0 ]; then
+            echo "❌ PR body must include a valid issue-closing reference, e.g., 'Closes #123', 'Fixes #45', or 'Resolves #7'"
             exit 1
           fi
 
+          # Check branch prefix
+          echo "Checking branch format..."
           echo "Branch: $BRANCH_NAME"
+          
+          BRANCH_PREFIX=$(echo "$BRANCH_NAME" | cut -d'/' -f1)
+          
+          if ! [[ ",$PREFIXES," == *",$BRANCH_PREFIX,"* ]]; then
+            echo "❌ Branch prefix '$BRANCH_PREFIX' is not allowed. Use one of: $PREFIXES"
+            exit 1
+          fi
 
           echo "✅ PR format is correct!"

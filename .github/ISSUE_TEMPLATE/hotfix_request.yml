@@ -1,0 +1,22 @@
+name: 🔥 Hotfix report
+description: Report a critical issue requiring immediate fix
+labels: [hotfix]
+body:
+  - type: input
+    id: summary
+    attributes:
+      label: Short description
+      placeholder: Briefly describe the critical issue
+
+  - type: input
+    id: jira
+    attributes:
+      label: Jira / Task Reference
+      placeholder: "Example: JIRA-456"
+
+  - type: markdown
+    attributes:
+      value: |
+        **Reminder:**  
+        Branch name format → `hotfix/#<issue-number>-<short-description>`  
+        Ensure postmortem documentation is linked if applicable.

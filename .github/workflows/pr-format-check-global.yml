@@ -35,15 +35,6 @@ jobs:
             exit 1
           fi
 
-          # Check PR body includes at least one valid issue-closing keyword
-          # Clean PR body
-          PR_BODY_CLEAN=$(echo "$PR_BODY" | tr -d '\r\n')
-          REGEX='(close|closes|closed|fix|fixes|resolve|resolves)[[:space:]]*#[0-9]+'
-          if ! [[ "$PR_BODY_CLEAN" =~ $REGEX ]]; then
-            echo "❌ PR body must include a valid issue-closing reference, e.g. 'Closes #123', 'Fixes #45', or 'Resolves #7'"
-            exit 1
-          fi
-
           # Check branch prefix
           BRANCH_PREFIX=$(echo "$BRANCH_NAME" | cut -d'/' -f1)
           if ! [[ ",$PREFIXES," == *",$BRANCH_PREFIX,"* ]]; then

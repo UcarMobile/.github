@@ -27,7 +27,6 @@ jobs:
           PREFIXES="${{ inputs.allowedPrefixes }}"
           
           echo "PR title: $PR_TITLE"
-          echo "Branch: $BRANCH_NAME"
 
           # Check PR title format: [#number] Some title
           if ! [[ "$PR_TITLE" =~ ^\[#([0-9]+)\]\ .+ ]]; then
@@ -36,12 +35,18 @@ jobs:
           fi
 
           # Check PR body includes at least one valid issue-closing keyword
-          # Clean PR body
+          
+          echo "Checking body issue-closing reference..."
+          
           PR_BODY="${{ github.event.pull_request.body }}"
-          REGEX='(?im)(close|closes|closed|fix|fixes|resolve|resolves)[[:space:]]*#[0-9]+'
+          PR_BODY_CLEAN=$(echo "$PR_BODY" | tr -d '\r')
+          REGEX='(?i)(close|closes|closed|fix|fixes|resolve|resolves)[[:space:]]*#[0-9]+'
+
           if ! [[ "$PR_BODY_CLEAN" =~ $REGEX ]]; then
             echo "❌ PR body must include a valid issue-closing reference, e.g. 'Closes #123', 'Fixes #45', or 'Resolves #7'"
             exit 1
           fi
+
+          echo "Branch: $BRANCH_NAME"
 
           echo "✅ PR format is correct!"

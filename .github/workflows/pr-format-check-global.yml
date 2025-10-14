@@ -6,7 +6,7 @@ on:
       allowedPrefixes:
         description: 'Allowed branch prefixes'
         required: false
-        default: 'feature,bugfix,hotfix'
+        default: 'feature,bugfix,hotfix,documentation'
         type: string
 
 jobs:
@@ -35,20 +35,14 @@ jobs:
             exit 1
           fi
 
-          # Check PR body includes valid issue-closing keywords
-        - name: Validate PR body includes issue reference
-          run: |
-            PR_BODY="${{ github.event.pull_request.body }}"
+          # Check PR body includes at least one valid issue-closing keyword
+          PR_BODY="${{ github.event.pull_request.body }}"
+          REGEX='(close|closes|closed|fix|fixes|resolve|resolves)[[:space:]]*#[0-9]+'
 
-            # Regex que acepta todas las palabras clave válidas de GitHub
-            REGEX='(close|closes|closed|fix|fixes|resolve|resolves)[[:space:]]*#[0-9]+'
-
-            if ! [[ "$PR_BODY" =~ $REGEX ]]; then
-              echo "❌ PR body must include a valid issue-closing reference, e.g. 'Closes #123', 'Fixes #45', or 'Resolves #7'"
-              exit 1
-            else
-              echo "✅ PR body contains a valid issue-closing reference."
-            fi
+          if ! [[ "$PR_BODY" =~ $REGEX ]]; then
+            echo "❌ PR body must include a valid issue-closing reference, e.g. 'Closes #123', 'Fixes #45', or 'Resolves #7'"
+            exit 1
+          fi
 
           # Check branch prefix
           BRANCH_PREFIX=$(echo "$BRANCH_NAME" | cut -d'/' -f1)

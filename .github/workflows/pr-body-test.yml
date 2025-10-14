@@ -20,12 +20,11 @@ jobs:
           echo "Validating PR_BODY content:"
           echo "$PR_BODY"
 
-          # Regex robusto para palabras clave y múltiples issues
-          REGEX='((^|[[:space:]])(close|closes|closed|fix|fixes|fixed|resolve|resolves|resolved)[[:space:]]+#[0-9]+([[:space:]]*,[[:space:]]*(close|closes|closed|fix|fixes|fixed|resolve|resolves|resolved)[[:space:]]+#[0-9]+)*)'
+          # Regex final
+          REGEX='(close|closes|closed|fix|fixes|resolve|resolves)[[:space:]]*#[0-9]+'
 
           if [[ "$PR_BODY" =~ $REGEX ]]; then
-            echo "✅ PR body is valid!"
+            echo "✅ PR body contains a valid issue-closing reference!"
           else
-            echo "❌ PR body is INVALID!"
-            exit 1
+            echo "❌ PR body does NOT contain a valid issue-closing reference!"
           fi

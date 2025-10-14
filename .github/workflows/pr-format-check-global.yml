@@ -54,6 +54,7 @@ jobs:
           
           if ! [[ ",$PREFIXES," == *",$BRANCH_PREFIX,"* ]]; then
             echo "❌ Branch prefix '$BRANCH_PREFIX' is not allowed. Use one of: $PREFIXES"
+            echo "Ex. feature/#123-Fix-client-validation
             exit 1
           fi
 
